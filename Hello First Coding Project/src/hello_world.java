@@ -2,14 +2,14 @@
 /**
  * Write a description of class Hello_world here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Carolyn Yee) 
+ * @version (8/25/2018)
  */
-public class Hello_world
+public class hello_world
 {
     public static void main(String[] args)
     {
-        System.out.println("Hello World! From <your name>"); //Display the string
+        System.out.println("Hello World! From Carolyn Yee"); //Display the string
     }
 }
 
