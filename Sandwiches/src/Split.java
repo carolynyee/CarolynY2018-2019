@@ -51,17 +51,23 @@ public class Split {
 	
 	
 // Use String.split to split up the sandwich by the word "bread" and return what's in the middle of
-
-	System.out.println(Arrays.toString("applespineapplesbreadlettustomatobaconmayohambreadcheese".split("bread")));
+	System.out.println("split by bread");
+	System.out.println(Arrays.toString("applespineapplesbreadlettucetomatobaconmayohambreadcheese".split("bread")));
+	System.out.println();
 	
 //the sandwich and ignores what's on the outside
-	
-	String[] sandwich = ("applespineapplesbreadlettustomatobaconmayohambreadcheese".split("bread"));
+	System.out.println("print the inside only");
+	String[] sandwich = ("applespineapplesbreadlettucetomatobaconmayohambreadcheese".split("bread"));
 	System.out.println(Arrays.toString(sandwich));
 	System.out.println(sandwich[1]);
+	System.out.println();
 
 //What if it's a fancy sandwich with multiple pieces of bread?
-	
+	System.out.println("fancy sandwich");
+	String[] sand = ("applesbreadpineapplesbreadlettucebreadtomatobreadbaconbreadmayobreadhambreadcheese".split("bread"));
+	System.out.println(Arrays.toString(sand));
+	System.out.println(sand[1]);
+	System.out.println();
 
 	
 
@@ -74,19 +80,26 @@ public class Split {
 // describing a sandwich
 
 // use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of
- 
-	System.out.println();
+	System.out.println("split at the spaces");
 	String[] a = "apples pineapples bread lettuce tomato bacon mayo ham bread cheese".split(" ");
 	System.out.println(Arrays.toString(a));
+	
  
 
 // the sandwich and ignores what's on the outside.
-	
+	System.out.println();
+	System.out.println("print the inside only");
 	for(int i = 3; i <= 7; i++) {
 		System.out.print(a[i]);
 	}
-
+	System.out.println();
+	
 // Again, what if it's a fancy sandwich with multiple pieces of bread?
+	System.out.println();
+	System.out.println("fancy sandwich");
+	String[] sandw = ("applesbreadpineapplesbreadlettucebreadtomatobreadbaconbreadmayobreadhambreadcheese".split("bread"));
+	System.out.println(Arrays.toString(sandw));
+	System.out.println(sandw[1]);
 	
 	
  }
