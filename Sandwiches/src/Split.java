@@ -84,7 +84,6 @@ public class Split {
 	String[] a = "apples pineapples bread lettuce tomato bacon mayo ham bread cheese".split(" ");
 	System.out.println(Arrays.toString(a));
 	
- 
 
 // the sandwich and ignores what's on the outside.
 	System.out.println();
@@ -97,9 +96,16 @@ public class Split {
 // Again, what if it's a fancy sandwich with multiple pieces of bread?
 	System.out.println();
 	System.out.println("fancy sandwich");
-	String[] sandw = ("applesbreadpineapplesbreadlettucebreadtomatobreadbaconbreadmayobreadhambreadcheese".split("bread"));
-	System.out.println(Arrays.toString(sandw));
-	System.out.println(sandw[1]);
+	//String[] sandw = ("applesbreadpineapplesbreadlettucebreadtomatobreadbaconbreadmayobreadhambreadcheese".split("bread"));
+	String sandwh = "apples pineapples bread lettuce tomato bacon mayo ham bread cheese";
+	int start = sandwh.indexOf("bread");
+	sandwh = sandwh.substring(start);
+	//String[] a = sandwh.split(" ");
+	//System.out.println(a);
+	String b = sandwh.split("bread");
+	System.out.println(sandwh.split("bread"));
+	//System.out.println(Arrays.toString(sandw));
+	//System.out.println(sandw[1]);
 	
 	
  }
