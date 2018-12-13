@@ -1,9 +1,10 @@
+//Carolyn Yee
+//11/02/2018
+//String.split project 
+	//working with arrays
+
 import java.util.Arrays;
-
 public class Split {
-
- 
-
  public static void main(String[] args) {
 
 // Your task Part 0
@@ -33,9 +34,10 @@ public class Split {
 
 //What happens if you "I reallyreally likeapples".split("really") ?
 	 System.out.println(Arrays.toString("I reallyreally likeapples".split("really")));
-	 
+	 System.out.println();
 	 
 //Your task Part 1:
+	 System.out.println("Part 1: ");
 
 //Write a method that take in a string like
 
@@ -44,10 +46,9 @@ public class Split {
 
 //describing a sandwich.
 	
-	//String s = "applespineapplesbreadlettustomatobaconmayohambreadcheese";
-	//System.out.println(s.substring(21, 45));
+	String s = "String: applespineapplesbreadlettustomatobaconmayohambreadcheese";
+	System.out.println(s);
 
-	System.out.println();
 	
 	
 // Use String.split to split up the sandwich by the word "bread" and return what's in the middle of
@@ -63,20 +64,24 @@ public class Split {
 	System.out.println();
 
 //What if it's a fancy sandwich with multiple pieces of bread?
-	System.out.println("fancy sandwich");
-	String[] sand = ("applesbreadpineapplesbreadlettucebreadtomatobreadbaconbreadmayobreadhambreadcheese".split("bread"));
-	System.out.println(Arrays.toString(sand));
-	System.out.println(sand[1]);
-	System.out.println();
 
+	System.out.println("fancy sandwich");
+	String sandwh = "apples pineapples bread lettuce tomato bacon mayo ham bread cheese";
+	int start = sandwh.indexOf("bread");
+	sandwh = sandwh.substring(start);
+	System.out.println(sandwh);
+	String[] sandwhi = sandwh.split("bread");
+	System.out.println(Arrays.toString(sandwhi));
 	
 
 //Your task pt 2:
+	System.out.println();
+	 System.out.println("Part 2: ");
 
 //Write a method that take in a string like
 
 // "apples pineapples bread lettuce tomato bacon mayo ham bread cheese"
-
+	 System.out.println("String: apples pineapples bread lettuce tomato bacon mayo ham bread cheese");
 // describing a sandwich
 
 // use String.split to split up the sandwich at the spaces, " ", and return what's in the middle of
@@ -96,19 +101,15 @@ public class Split {
 // Again, what if it's a fancy sandwich with multiple pieces of bread?
 	System.out.println();
 	System.out.println("fancy sandwich");
-	//String[] sandw = ("applesbreadpineapplesbreadlettucebreadtomatobreadbaconbreadmayobreadhambreadcheese".split("bread"));
-	String sandwh = "apples pineapples bread lettuce tomato bacon mayo ham bread cheese";
-	int start = sandwh.indexOf("bread");
-	sandwh = sandwh.substring(start);
-	//String[] a = sandwh.split(" ");
-	//System.out.println(a);
-	String b = sandwh.split("bread");
-	System.out.println(sandwh.split("bread"));
-	//System.out.println(Arrays.toString(sandw));
-	//System.out.println(sandw[1]);
+	String sandwhic = "apples pineapples bread lettuce tomato bacon mayo ham bread cheese";
+	int start2 = sandwhic.indexOf("bread");
+	sandwhic = sandwhic.substring(start2);
+	System.out.println(sandwhic);
+	String[] sandwhich = sandwh.split("bread");
+	System.out.println(Arrays.toString(sandwhich));
 	
-	
- }
+
+	 }
 
 }
 
