@@ -25,15 +25,15 @@ public class FracCalc {
     		String output = produceAnswer(input);
     		System.out.println(output);
     		System.out.println("Please input a fraction: ");
-    		output = userinput.nextLine();
+    		input = userinput.nextLine();
     	}
 }
   //toImproperFraction
   	//converts mixed number to improper fraction
   	public static String toImproperFrac(int whole, int numerator, int denominator) {
-  		if (denominator == 0) {
+  		/*if (denominator == 0) {
   			return "ERROR: Cannot divide by zero.";
-  		} 
+  		} */
   		
   		if (whole < 0) {
   			whole *= -1;
@@ -51,7 +51,7 @@ public class FracCalc {
   	public static boolean isDivisibleBy(int num1, int num2) {
   		if (num2 == 0) {
   			throw new IllegalArgumentException("Second number cannot be 0");
-  		}	
+  		}
   		if (num1 % num2 == 0) {
   			return true;
   		} else {
@@ -63,9 +63,11 @@ public class FracCalc {
   	//finds greatest common factor of two integers
   	public static int gcf(int a, int b){
   	    int answer = 1;
-  	    for (int i = 1; i <= a || i <= b; i++) {
+  	    for (int i = 1; i <= Math.abs(a); i++) {
+  	    	
   	    	if (isDivisibleBy(a, i) && (isDivisibleBy(b, i))){
   	    		answer = i;
+  	    		
   	    	}
   	    }
   		return answer;
@@ -172,8 +174,6 @@ public class FracCalc {
        String[] second = (toImproperFrac(whole2, num2, denom2).split("/"));
        System.out.println(Arrays.toString(second));
      
-       // int[] output = {first, second};
-       
         if (space[1].equals("-")) {
         	return subtraction(makeNum(first, second));
         } else if (space[1].equals("+")) {
@@ -182,6 +182,9 @@ public class FracCalc {
         	return multiplication(makeNum(first, second));
         }else if (space[1].equals("/")) {
         	return division(makeNum(first, second));
+      /*  }else if (denom == 0 || denom2 == 0) {
+        	return "ERROR: Cannot divide by zero.";
+        */
         }else {
         	return "ERROR: Input is an invalid format.";
         }
@@ -197,6 +200,7 @@ public class FracCalc {
         convertInt[2] = Integer.parseInt(second[0]);
         convertInt[3] = Integer.parseInt(second[1]);
         System.out.println(Arrays.toString(convertInt));
+       
         return convertInt;
   	 }
    
@@ -204,13 +208,15 @@ public class FracCalc {
  public static String subtraction(int[] convertInt) {
 	 int num;
 	 int denom;
-	 if(convertInt[3] == convertInt[1]) {
+	/* if(convertInt[3] == convertInt[1]) {
 		 num = convertInt[0] - convertInt[2];
 		 denom = convertInt[3];
 	 } else {
 		 denom = convertInt[3]*convertInt[1];
 		 num = (convertInt[0] * convertInt[3]) - (convertInt[2] * convertInt[1]);
-	 }
+	 }*/
+	 denom = convertInt[3]*convertInt[1];
+	 num = (convertInt[0] * convertInt[3]) - (convertInt[2] * convertInt[1]);
 	 String answer = num + "/" + denom;
 	 answer = finalAnswer(num, denom);
 	 return answer;
@@ -219,63 +225,89 @@ public class FracCalc {
 public static String addition(int[] convertInt) {
 	 int num;
 	 int denom;
-	 if(convertInt[3] == convertInt[1]) {
+	/* if(convertInt[3] == convertInt[1]) {
 		 num = convertInt[0] + convertInt[2];
 		 denom = convertInt[3];
 	 } else {
 		 denom = convertInt[3]*convertInt[1];
 		 num = (convertInt[0] * convertInt[3]) + (convertInt[2] * convertInt[1]);
-	 }
+	 }*/
+	 denom = convertInt[3]*convertInt[1];
+	 num = (convertInt[0] * convertInt[3]) + (convertInt[2] * convertInt[1]);
 	 String answer = num + "/" + denom;
 	 answer = finalAnswer(num, denom);
 	 return answer;
 	}
 public static String multiplication(int[] convertInt) {
-	 int num;
-	 int denom;
-		 denom = convertInt[3]*convertInt[1];
-		 num = convertInt[0] * convertInt[2];
-	 String answer = num + "/" + denom;
-	 
-	 answer = finalAnswer(num, denom);
-	 if(convertInt[0] == 0 || convertInt[2] == 0 ) {
-		 return answer = "0";
+	int denom = convertInt[3]*convertInt[1];
+	int num = convertInt[0] * convertInt[2];
+	String answer = num + "/" + denom;
+	answer = finalAnswer(num, denom);
+	if(convertInt[0] == 0 || convertInt[2] == 0 ) {
+		return answer = "0";
 	 }
 	 return answer;
 	}
 public static String division(int[] convertInt) {
-	 int num;
-	 int denom;
-		 denom = convertInt[1]*convertInt[2];
-		 
-		 num = convertInt[0] * convertInt[3];
-	 String answer = num + "/" + denom;
-	 answer = finalAnswer(num, denom);
-	 if(convertInt[0] == 0 || convertInt[2] == 0 ) {
-		 return answer = "0";
-	 }
-	 return answer;
+	int denom = convertInt[1]*convertInt[2];
+	int num = convertInt[0] * convertInt[3];
+	String answer = num + "/" + denom;
+	answer = finalAnswer(num, denom);
+		if (convertInt[0] == 0 || convertInt[2] == 0 ) {
+			return answer = "0";
+		}
+	return answer;
 	}
 
 
 
 
-	
+
+
 	//finalAnswer
 	//reduce and change to mixed number
 public static String finalAnswer(int num, int denom) {
-	int gcf = gcf(num, denom);
-	num = num/gcf;
-	denom = denom/gcf;
+	
 
+	int gcf = gcf(num, denom);
+	System.out.println("gcf: " + gcf);
+	num = num / gcf;
+	denom = denom / gcf;
+	System.out.println("num + denom: " + num + " " + denom);
+		String answer = (num / denom + "_" + num  % denom + "/" + denom);
+	/*int num2 = num % denom;
+	System.out.println("num2 + denom: " + num2 + "" + denom);
+	gcf = gcf(num2, denom);
+	System.out.println("gcf2: " + gcf);
+	num2 = num / gcf;
+	
+	if(num < 0 && denom < 0) {
+		num *= -1;
+		denom *= -1;
+		return (-num / denom) + "_" + num % denom + "/" + denom;
+	}
+	*/
+	
+	
+	
+	
+		if (num == 0) {
+		return "0";
+	}
 	if (num/denom == 0) {
-		return num % denom + "/" + denom;
+		answer = num % denom + "/" + denom;
+		if(denom < 0) {
+			answer = -(num % denom) + "/" + (denom * -1);
+		} return answer;
 	}
 	if (num % denom == 0) {
 		return num / denom + "";
 	}
-	System.out.println("num + denom: " + num + " " + denom);
-	String answer = (num / denom + "_" + (num * -1) % denom + "/" + denom);
+	/*
+	if (num < 0) {
+		answer = (-num / denom) + "_" + num % denom + "/" + denom;
+	}*/
+	
 	
 	if (num < 0) {
 		answer = (num / denom + "_" + (num * -1) % denom + "/" + denom);
@@ -285,6 +317,7 @@ public static String finalAnswer(int num, int denom) {
 	}else if (num > 0 && denom < 0) {
 		answer = (num / denom + "_" + num % denom + "/" + (denom * -1));
 	}else {
+		
 		answer = (num / denom + "_" + num % denom + "/" + denom);
 	}
 	return answer;
