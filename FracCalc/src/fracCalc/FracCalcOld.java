@@ -14,7 +14,7 @@ package fracCalc;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class FracCalc {
+public class FracCalcOld {
 
     public static void main(String[] args) {
     	Scanner userinput = new Scanner(System.in);
