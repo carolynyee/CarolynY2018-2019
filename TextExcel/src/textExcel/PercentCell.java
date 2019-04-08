@@ -1,3 +1,7 @@
+//Carolyn Yee
+//4/08/2019
+//3rd period AP CompSci
+
 package textExcel;
 
 public class PercentCell extends RealCell{

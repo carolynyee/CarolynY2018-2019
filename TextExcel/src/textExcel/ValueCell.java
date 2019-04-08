@@ -1,3 +1,6 @@
+//Carolyn Yee
+//4/08/2019
+//3rd period AP CompSci
 package textExcel;
 
 public class ValueCell extends RealCell{
@@ -10,19 +13,9 @@ public class ValueCell extends RealCell{
 	}
 	
 	public double getDoubleValue() {
-		
-	/*	if (original.contains(".")) {
-			String[] noDecimal = original.split(".", 3);
-			double whole = Double.parseDouble(noDecimal[0]);
-			double decimal = Double.parseDouble(noDecimal[2]);
-			return (whole + decimal);
-		} else {*/
 		double temp = Double.parseDouble(original);
 		return temp;
 	}
-	/*public String fullCellText() {
-		return 
-	}*/
 	
 
 	
