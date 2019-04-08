@@ -1,4 +1,4 @@
-package textExcel;
+ package textExcel;
 
 public class RealCell implements Cell{
 	private String valueText;
@@ -10,8 +10,14 @@ public class RealCell implements Cell{
 	}
 	//text for spreadsheet cell display, must be exactly length 10
 	public String abbreviatedCellText() {
-		String tempText = getDoubleValue() + "         ";
+		if (valueText.contains("\"")) {
+			String tempText = valueText + "          ";
+			return tempText.substring(0,10);
+		}else {	
+			double temp = getDoubleValue();
+		String tempText = temp + "         ";
 		return tempText.substring(0,10);
+		}
 	}
 	
 	//text for individual cell inspection, not truncated or padded

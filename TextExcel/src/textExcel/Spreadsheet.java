@@ -27,49 +27,35 @@ public class Spreadsheet implements Grid {
 	@Override
 	public String processCommand(String command) {
 		String[] splitCommand = command.split(" ", 3);
-	//	System.out.println(Arrays.toString(splitCommand));
 		
-		/*if (command.contains("clear")) {
-			//would execute clear() or clearing a particular cell
-			if (command.length() > 5) {
-				//clear particular cell
-			}*/		
 		if (command.length() < 5) {
 			SpreadsheetLocation loc = new SpreadsheetLocation(command);
 			return getCell(loc).fullCellText();
 			//do cell inspection
-		} else  if (splitCommand.length == 1 ) {
+		} else if (splitCommand.length == 1 ) {
 			//would execute clear 
 				clear();
-		}else if (splitCommand.length == 3) { //assignment of string values
-			String gridLocation = splitCommand[0];
-			SpreadsheetLocation loc = new SpreadsheetLocation(gridLocation);
-
+		} else if (splitCommand.length == 3) { 
+			
+			SpreadsheetLocation loc = new SpreadsheetLocation(splitCommand[0]);
 			String stringValue = splitCommand[2];
-			sheet[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
-				
-			if (!splitCommand[2].contains("\"")){
-				if (!splitCommand[2].contains("%")){
-					sheet[loc.getRow()][loc.getCol()] = new PercentCell(stringValue);
-				}
-				sheet[loc.getRow()][loc.getCol()] = new ValueCell(stringValue);
 
-				
+			if (splitCommand[2].contains("\"")){ //string value
+				sheet[loc.getRow()][loc.getCol()] = new TextCell(stringValue);
+
+			} else if (splitCommand[2].contains("(")) { //formula cell
+				sheet[loc.getRow()][loc.getCol()] = new FormulaCell(stringValue);
+
+			}else if (splitCommand[2].contains("%")) { //percent cell
+				sheet[loc.getRow()][loc.getCol()] = new PercentCell(stringValue);
+			}else { //value cell
+				sheet[loc.getRow()][loc.getCol()] = new ValueCell(stringValue);
 			}
-				
-			
-			
-			if (splitCommand[2].contains("%")) { //assignment of percent value
-					PercentCell pc = new PercentCell(stringValue);
-					sheet[loc.getRow()][loc.getCol()] = pc;
-					
-					
-				} 	 
-		 } else { 
+		} else { 
 			//clear at specific location
 			SpreadsheetLocation loc = new SpreadsheetLocation(splitCommand[1]);
 			sheet[loc.getRow()][loc.getCol()] = new EmptyCell();
-		 }
+		}
 		return getGridText();
 	}
 	

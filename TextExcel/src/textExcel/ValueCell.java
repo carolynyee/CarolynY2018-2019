@@ -6,19 +6,24 @@ public class ValueCell extends RealCell{
 	//constructor
 	public ValueCell(String text) {
 		super(text);
+		original = text;
 	}
 	
 	public double getDoubleValue() {
 		
-		if (original.contains(".")) {
+	/*	if (original.contains(".")) {
 			String[] noDecimal = original.split(".", 3);
 			double whole = Double.parseDouble(noDecimal[0]);
 			double decimal = Double.parseDouble(noDecimal[2]);
 			return (whole + decimal);
-		} else {
-			return Double.parseDouble(original);
-		}
+		} else {*/
+		double temp = Double.parseDouble(original);
+		return temp;
 	}
+	/*public String fullCellText() {
+		return 
+	}*/
+	
 
 	
 }

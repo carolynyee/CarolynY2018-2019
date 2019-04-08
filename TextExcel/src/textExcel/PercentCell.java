@@ -6,7 +6,9 @@ public class PercentCell extends RealCell{
 	
 	//constructor
 	public PercentCell(String text) {
-		super(text);		
+		super(text);
+		original = text;
+
 	}
 	
 	
@@ -15,5 +17,23 @@ public class PercentCell extends RealCell{
 		double newNum = Double.parseDouble(temp);
 		return newNum * 0.01;
 	}
+	//text for spreadsheet cell display, must be exactly length 10
+	public String abbreviatedCellText() {
+		if(original.contains(".")) {
+			String temp = original;
+			temp = original.substring(0, original.indexOf("."));
+			temp = temp + "%" + "          ";
+			return temp.substring(0,10);	
+		} else {
+			String tempText = original + "         ";
+			return tempText.substring(0,10);
+		}
+	}
+	public String fullCellText() {
+		String temp = original.substring(0, original.length() -1);
+		double newNum = Double.parseDouble(temp);
+		newNum = newNum * 0.01;
+		return "" + newNum;
+		}
 	
 }
