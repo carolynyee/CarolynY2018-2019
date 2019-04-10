@@ -15,12 +15,13 @@ public class PercentCell extends RealCell{
 
 	}
 	
-	
+	//returns the percent as a decimal
 	public double getDoubleValue() {
 		String temp = original.substring(0, original.length());
 		double newNum = Double.parseDouble(temp);
 		return newNum * 0.01;
 	}
+	
 	//text for spreadsheet cell display, must be exactly length 10
 	public String abbreviatedCellText() {
 		if(original.contains(".")) {
@@ -33,11 +34,13 @@ public class PercentCell extends RealCell{
 			return tempText.substring(0,10);
 		}
 	}
+	
+	//returns the "double" but made into string form
 	public String fullCellText() {
-		String temp = original.substring(0, original.length() -1);
+		String temp = original.substring(0, original.length() - 1);
 		double newNum = Double.parseDouble(temp);
 		newNum = newNum * 0.01;
 		return "" + newNum;
-		}
+	}
 	
 }

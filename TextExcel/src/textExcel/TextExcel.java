@@ -8,28 +8,19 @@ package textExcel;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-// Update this file with your own code.
-
 public class TextExcel {
 	
+	//main method, code starts here! 
 	public static void main(String[] args) {
-	    // Add your command loop here
 		Scanner userinput = new Scanner(System.in);
 		System.out.print("Please input a command: ");
 		String input = userinput.nextLine();
 		Spreadsheet spst = new Spreadsheet();
-	
 
 		while(!input.equals("quit")) {
-	
-	
 			System.out.println(spst.processCommand(input));
-			
 			System.out.print("Please input a command: ");
-			
 			input = userinput.nextLine();
 		}
-
 	}
-
 }

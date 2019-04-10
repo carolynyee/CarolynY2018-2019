@@ -5,8 +5,8 @@
 package textExcel;
 
 public class RealCell implements Cell{
+	
 	private String valueText;
-	//private double value
 	
 	//constructor
 	public RealCell(String text) {
@@ -19,8 +19,8 @@ public class RealCell implements Cell{
 			return tempText.substring(0,10);
 		}else {	
 			double temp = getDoubleValue();
-		String tempText = temp + "         ";
-		return tempText.substring(0,10);
+			String tempText = temp + "         ";
+			return tempText.substring(0,10);
 		}
 	}
 	

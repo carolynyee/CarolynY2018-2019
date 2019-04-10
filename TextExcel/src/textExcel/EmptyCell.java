@@ -1,11 +1,14 @@
+//Carolyn Yee
+//3/04/2019
+//version 1
+
 package textExcel;
 
-//Carolyn Yee, 3/4/2019, version1
 public class EmptyCell implements Cell {
 
+	//needs a constructor, but actually doesn't do anything
 	public EmptyCell() {
 	}
-	
 	
 	// text for spreadsheet cell display, must be exactly length 10
 	public String abbreviatedCellText() {
@@ -14,6 +17,7 @@ public class EmptyCell implements Cell {
 		//always add 10, then use substring to just take the first 10
 		return "          ";
 	}
+	
 	// text for individual cell inspection, not truncated or padded
 	public String fullCellText() {
 		return "";

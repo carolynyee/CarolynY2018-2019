@@ -1,31 +1,28 @@
+//Carolyn Yee
+//4/09/2019
+//3rd period
+
 package textExcel;
 
-//Update this file with your own code.
-
 public class SpreadsheetLocation implements Location {
+	
 	private int row;
 	private int column;
 	
-    @Override
+	//returns row of cell
     public int getRow() {
         return row;
     }
-
-    @Override
+    
+    //returns column of cell
     public int getCol() {
         return column;
     }
    
+    //creates a cell at a certain location based on string input
     public SpreadsheetLocation(String cellName) {
-    	
     	cellName = cellName.toUpperCase();
     	column = cellName.charAt(0)-'A';
-    	row = Integer.parseInt(cellName.substring(1))-1;  
-    //	System.out.println("row: "+row);
-    	//System.out.println("col: " + column);
-    	
+    	row = Integer.parseInt(cellName.substring(1))-1;    	
     }
-
-	
-
 }

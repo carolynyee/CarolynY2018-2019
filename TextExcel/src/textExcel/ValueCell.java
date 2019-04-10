@@ -1,9 +1,11 @@
 //Carolyn Yee
 //4/08/2019
 //3rd period AP CompSci
+
 package textExcel;
 
 public class ValueCell extends RealCell{
+	
 	private String original;
 	
 	//constructor
@@ -12,11 +14,9 @@ public class ValueCell extends RealCell{
 		original = text;
 	}
 	
+	//returns the original string as a double
 	public double getDoubleValue() {
-		double temp = Double.parseDouble(original);
-		return temp;
+		return Double.parseDouble(original);
 	}
-	
-
 	
 }

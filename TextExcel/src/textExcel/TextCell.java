@@ -5,13 +5,15 @@
 package textExcel;
 
 public class TextCell implements Cell{
+	
 	String original;
 	
+	// method to remove the parentheses from the original text
 	public TextCell(String text) {
-		original = text.substring(1, text.length()-1);
+		original = text.substring(1, text.length() - 1);
 	}
-
-	@Override
+	
+	//method to return the orignal text but will only be 10 characters long
 	public String abbreviatedCellText() {
 	//needs to return 10 characters, will need to add or subtract spaces
 	//too many --> substring
@@ -20,8 +22,9 @@ public class TextCell implements Cell{
 		return temp.substring(0, 10);
 	}
 
-	@Override
+	// method to return the original text but with quotes
 	public String fullCellText() {
 		return ( "\"" + original + "\"");
 	}
+	
 }
